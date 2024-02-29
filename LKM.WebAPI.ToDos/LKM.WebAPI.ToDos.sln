@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lkm.WepAPI.ToDos", "lkm.WepAPI.ToDos\lkm.WepAPI.ToDos.csproj", "{F2AE4A8B-0928-48F4-A7B3-8DA9B2013D7A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LKM.WebAPI.ToDos", "LKM.WebAPI.ToDos\LKM.WebAPI.ToDos.csproj", "{6594A8FF-3A86-4EB3-B2D2-275434B4C469}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F2AE4A8B-0928-48F4-A7B3-8DA9B2013D7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F2AE4A8B-0928-48F4-A7B3-8DA9B2013D7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F2AE4A8B-0928-48F4-A7B3-8DA9B2013D7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F2AE4A8B-0928-48F4-A7B3-8DA9B2013D7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6594A8FF-3A86-4EB3-B2D2-275434B4C469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6594A8FF-3A86-4EB3-B2D2-275434B4C469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6594A8FF-3A86-4EB3-B2D2-275434B4C469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6594A8FF-3A86-4EB3-B2D2-275434B4C469}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7A5BB63B-FE18-4FB3-A5A5-187C6DE3C4A5}
+		SolutionGuid = {16E74287-8A61-4686-9787-E5CE01F80DD1}
 	EndGlobalSection
 EndGlobal
