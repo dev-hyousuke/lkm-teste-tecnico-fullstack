@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using LKM.WebAPI.ToDos.Models;
 using LKM.WebAPI.ToDos.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LKM.WebAPI.ToDos.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("[controller]")]
 public class TarefaController : ControllerBase
@@ -13,6 +15,7 @@ public class TarefaController : ControllerBase
     public TarefaController(ITarefaService service) => _service = service;
 
     [HttpGet]
+    [AllowAnonymous]
     public IEnumerable<Tarefa> Get() 
         => _service.ListarTarefas();
 
