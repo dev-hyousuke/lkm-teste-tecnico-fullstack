@@ -1,0 +1,16 @@
+<div class="card shadow text-center mb-5">
+    <div class="card-header bg-secondary text-light">
+        <h4>Editar Tarefa</h4>
+    </div>
+    <div class="card-body container">
+        <form [formGroup]="tarefaForm" (ngSubmit)="submitForm()">
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="titulo" placeholder="Titulo" aria-label="Titulo" [value]="tarefa?.titulo" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="descricao" placeholder="Descricao" aria-label="Descricao"  [value]="tarefa?.descricao" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Atualizar Tarefa</button>
+        </form>
+    </div>
+</div>

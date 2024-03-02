@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TarefaService } from '../tarefa.service';
 import { TarefaModel } from './tarefa-model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-lista-tarefas',
@@ -11,20 +12,31 @@ import { TarefaModel } from './tarefa-model';
 export class ListaTarefasComponent implements OnInit {
     constructor(private tarefaService: TarefaService) { }
 
-    public tarefas: TarefaModel[] = [];
+    public tarefas: Observable<TarefaModel[]> = new Observable<TarefaModel[]>();
+        
     public ngOnInit(): void {
       this.ListarTarefas(); 
     }
 
     public ListarTarefas(): void {
-      this.tarefaService.ListarTarefas()
-        .subscribe(tarefas => {
-          this.tarefas = tarefas;         
-        });
+      this.tarefas = this.tarefaService.ListarTarefas();
     }
 
-    public AdicionarTarefa(tarefa: TarefaModel): void {
-      this.tarefaService.AdicionarTarefa(tarefa);
-      this.ListarTarefas(); 
+    ExcluirTarefa(id: number | undefined) {
+      if (id === undefined) {
+        console.error('ID da tarefa é indefinido.');
+        return;
+      }
+
+      this.tarefaService.ExcluirTarefa(id)
+      .subscribe({
+        next: () => {
+          console.log('Tarefa excluída com sucesso.');
+          this.ListarTarefas(); // Chamando ListarTarefas após a exclusão bem-sucedida
+        },
+        error: error => {
+          console.error('Erro ao excluir tarefa:', error);
+        }
+      });
     }
 }

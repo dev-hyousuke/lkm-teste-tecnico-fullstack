@@ -15,6 +15,7 @@ public class TarefaRepository : ITarefaRepository
 
     public void AdicionarTarefa(Tarefa tarefa)
     {
+
         _dbContext.Tarefas.Add(tarefa);
         _dbContext.SaveChanges();
     }
@@ -25,7 +26,8 @@ public class TarefaRepository : ITarefaRepository
 
         if (result != null)
         {
-            result.Concluida = tarefa.Concluida;
+            result.Titulo = tarefa.Titulo;
+            result.Descricao = tarefa.Descricao;
             _dbContext.SaveChanges();
         }
     }

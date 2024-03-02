@@ -16,12 +16,15 @@ public class TarefaService : ITarefaService
     public Tarefa BuscarTarefa(Guid id)
         => _repo.BuscarTarefa(id);
 
-    public void AdicionarTarefa(Tarefa todoItem)
-        => _repo.AdicionarTarefa(todoItem);
+    public void AdicionarTarefa(Tarefa tarefa)
+    {
+        tarefa.DataCriacao = DateTime.Now;
+        _repo.AdicionarTarefa(tarefa);
+    }
 
-    public void AtualizarTarefa(Tarefa todoItem)
-        => _repo.AtualizarTarefa(todoItem);
+    public void AtualizarTarefa(Tarefa tarefa)
+        => _repo.AtualizarTarefa(tarefa);
 
-    public void ExcluirTarefa(Tarefa todoItem)
-        => _repo.ExcluirTarefa(todoItem);
+    public void ExcluirTarefa(Tarefa tarefa)
+        => _repo.ExcluirTarefa(tarefa);
 }

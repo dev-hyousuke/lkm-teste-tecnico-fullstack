@@ -13,10 +13,22 @@ export class TarefaService {
   private baseUrl = `${environment.apiUrl}/Tarefa`;
 
   public ListarTarefas(): Observable<TarefaModel[]> {
-    return this.http.get<TarefaModel[]>(this.baseUrl);          
+    return this.http.get<TarefaModel[]>(this.baseUrl); 
   }
 
-  public AdicionarTarefa(tarefa: TarefaModel): void{
-    this.http.post<TarefaModel>(this.baseUrl, tarefa);          
+  public BuscarTarefa(id: any): Observable<TarefaModel> {
+    return this.http.get<TarefaModel>(`${this.baseUrl}/${id}`);
+  }
+
+  public AdicionarTarefa(tarefa: any): Observable<any>{
+    return this.http.post<any>(this.baseUrl, tarefa);
+  }
+
+  public AtualizarTarefa(tarefa: any): Observable<any>{
+    return this.http.put<any>(this.baseUrl, tarefa);
+  }
+
+  public ExcluirTarefa(id: number): Observable<any>{
+    return this.http.delete<any>(`${this.baseUrl}/${id}`);
   }
 }
