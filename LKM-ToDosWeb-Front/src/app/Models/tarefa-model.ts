@@ -3,5 +3,5 @@ export interface TarefaModel {
     titulo: string, 
     descricao: string,
     dataCriacao: Date,
-    concluido: boolean
+    concluida: boolean
 }

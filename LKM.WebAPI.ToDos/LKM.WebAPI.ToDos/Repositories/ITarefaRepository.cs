@@ -8,5 +8,6 @@ public interface ITarefaRepository
     Tarefa BuscarTarefa(Guid id);
     void AdicionarTarefa(Tarefa tarefa);
     void AtualizarTarefa(Tarefa tarefa);
+    void AtualizarStatus(Guid id);
     void ExcluirTarefa(Tarefa tarefa);
 }

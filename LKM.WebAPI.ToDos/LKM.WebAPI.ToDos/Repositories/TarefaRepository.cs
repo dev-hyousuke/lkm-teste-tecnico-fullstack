@@ -37,4 +37,23 @@ public class TarefaRepository : ITarefaRepository
         _dbContext.Remove(tarefa);
         _dbContext.SaveChanges();
     }
+
+    public void AtualizarStatus(Guid id)
+    {
+        var result = _dbContext.Tarefas.FirstOrDefault(e => e.Id == id);
+
+        if (result != null)
+        {
+            if (result.Concluida == true)
+            {
+                result.Concluida = false;
+            }
+            else
+            {
+                result.Concluida = true;
+            }
+
+            _dbContext.SaveChanges();
+        }
+    }
 }

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { TarefaService } from '../tarefa.service';
+import { TarefaService } from '../../Services/tarefa.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { TarefaModel } from '../lista-tarefas/tarefa-model';
+import { TarefaModel } from '../../Models/tarefa-model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-tarefa',
@@ -14,8 +15,12 @@ export class EditTarefaComponent implements OnInit{
   tarefaForm: FormGroup;
   tarefa?: TarefaModel;
 
-  constructor(private formBuilder: FormBuilder, public tarefaService: TarefaService, private route: ActivatedRoute) 
-  { 
+  constructor(
+    private formBuilder: FormBuilder,
+    public tarefaService: TarefaService,
+    private route: ActivatedRoute,
+    private toasterService: ToastrService
+  ) { 
     this.tarefaForm = this.formBuilder.group({
       titulo: ['', Validators.required],
       descricao: ['', Validators.required]
@@ -33,9 +38,8 @@ export class EditTarefaComponent implements OnInit{
     },
     (error) => {
       console.error("Erro ao buscar tarefa:", error);
-    }
-  );
-  }  
+    });
+  }
 
   submitForm(){
     this.tarefaService.AtualizarTarefa({
@@ -43,6 +47,7 @@ export class EditTarefaComponent implements OnInit{
       titulo: this.tarefaForm.get('titulo')?.value,
       descricao: this.tarefaForm.get('descricao')?.value
     }).subscribe({complete: console.info});
+    this.toasterService.success(`Tarefa Editada!`, 'Atualizada com sucesso!');
     this.tarefaForm.reset();
   }
 }

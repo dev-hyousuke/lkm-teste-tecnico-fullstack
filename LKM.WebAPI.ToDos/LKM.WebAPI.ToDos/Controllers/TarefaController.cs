@@ -44,6 +44,13 @@ public class TarefaController : ControllerBase
         return Ok();
     }
 
+    [HttpPatch]
+    public ActionResult<Tarefa> Patch(Guid id)
+    {
+        _service.AtualizarStatus(id);
+        return Ok();
+    }
+
     [HttpDelete("{id}")]
     public ActionResult<Tarefa> Delete(Guid id)
     {

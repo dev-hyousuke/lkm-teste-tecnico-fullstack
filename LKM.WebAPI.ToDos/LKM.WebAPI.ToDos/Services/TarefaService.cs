@@ -25,6 +25,9 @@ public class TarefaService : ITarefaService
     public void AtualizarTarefa(Tarefa tarefa)
         => _repo.AtualizarTarefa(tarefa);
 
+    public void AtualizarStatus(Guid id)
+        => _repo.AtualizarStatus(id);
+
     public void ExcluirTarefa(Tarefa tarefa)
         => _repo.ExcluirTarefa(tarefa);
 }

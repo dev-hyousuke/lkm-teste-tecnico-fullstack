@@ -6,7 +6,7 @@ namespace LKM.WebAPI.ToDos.Services
 {
     public class AuthService
     {
-        public string GerarToken()
+        public Token GerarToken()
         {
             var chave = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Key.Secret));
             var tokenConfig = new SecurityTokenDescriptor
@@ -18,8 +18,13 @@ namespace LKM.WebAPI.ToDos.Services
             var token = tokenHandler.CreateToken(tokenConfig);
             var tokenString = tokenHandler.WriteToken(token);
 
-            return tokenString;
+            return new Token() { AuthToken = tokenString };
         }
+    }
+
+    public class Token
+    {
+        public string? AuthToken { get; set; }
     }
 
     public class Key

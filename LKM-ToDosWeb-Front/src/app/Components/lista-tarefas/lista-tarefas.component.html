@@ -1,0 +1,30 @@
+
+<div class="container">
+  <div class="card shadow">
+    <h5 class="card-header bg-primary text-white">Lista de Tarefas</h5>
+    <div class="card-body">
+      <div class="list-group" *ngFor="let tarefa of tarefas | async">
+        <div class="container">
+          <div class="row shadow mb-4" [ngClass]="{'text-bg-success': tarefa?.concluida}">
+            <div class="col d-flex align-items-center justify-content-center">
+              <input type="checkbox" [checked]="tarefa.concluida" (change)="AtualizarStatus(tarefa.id)" class="form-check-input">
+            </div>
+            <div class="col">
+              <p class="fs-4">{{tarefa?.titulo}}</p>
+              <p class="fs-6">{{tarefa?.descricao}}</p>
+              {{tarefa?.concluida}}
+            </div>
+            <div class="col">
+              <p class="fs-4">Data:</p>
+              <p class="fs-6">{{tarefa?.dataCriacao | date: 'dd MMMM yyyy'}}</p>
+            </div>
+            <div class="col d-flex align-items-center">
+              <a [routerLink]="['/editar', tarefa.id]" class="btn btn-secondary btn-sm">Editar</a>
+              <button class="btn btn-danger btn-sm mx-3" (click)="ExcluirTarefa(tarefa?.id)">Deletar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

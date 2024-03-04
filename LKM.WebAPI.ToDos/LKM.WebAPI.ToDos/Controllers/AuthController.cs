@@ -6,13 +6,13 @@ namespace LKM.WebAPI.ToDos.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class UsuarioController : ControllerBase
+public class AuthController : ControllerBase
 {
     private readonly AuthService _authService;
     private readonly IUsuarioService _service;
 
 
-    public UsuarioController(AuthService authService, IUsuarioService service)
+    public AuthController(AuthService authService, IUsuarioService service)
     {
         _authService = authService;
         _service = service;
