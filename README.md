@@ -129,4 +129,4 @@ Para rodar o projeto Back-end instale runtime do .NET 6
 ## Autores
 
 - [@dev-hyousuke](https://www.github.com/dev-hyousuke)
-
+- [@lkm-tecnologia](https://www.lkm.com.br)
