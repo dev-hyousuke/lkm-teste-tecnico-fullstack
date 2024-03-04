@@ -1,5 +1,5 @@
 
-![Logo]<img src="LKM-ToDosWeb-Front\src\assets\LKM-Tecnologia-Color-Branco.png">
+<img src="LKM-ToDosWeb-Front\src\assets\LKM-Tecnologia-Color-Branco.png">
 
 
 # LKM - Tarefas
